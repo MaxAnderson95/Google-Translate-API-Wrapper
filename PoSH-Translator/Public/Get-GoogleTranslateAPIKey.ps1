@@ -1,4 +1,4 @@
-Function Set-GoogleTranslateAPIKey {
+Function Get-GoogleTranslateAPIKey {
 
     $ModulePath = Get-Module -Name PoSH-Translator | Select-Object -ExpandProperty ModuleBase
     $KeyFileName = "key.json"
@@ -8,6 +8,12 @@ Function Set-GoogleTranslateAPIKey {
     If ($Key.APIKey -eq $null) {
 
         Write-Error "API key not found. Use Set-GoogleTranslateAPIKey to set it."
+        
+    }
+    
+    Else {
+
+        Write-Output $Key
 
     }
 

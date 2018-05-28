@@ -17,6 +17,6 @@ Function Set-GoogleTranslateAPIKey {
     $ModulePath = Get-Module -Name PoSH-Translator | Select-Object -ExpandProperty ModuleBase
     $KeyFileName = "key.json"
 
-    $Key | ConverTo-JSON | Out-File -FilePath "$ModulePath\$KeyFileName" -Force
+    $Key | ConvertTo-JSON | Out-File -FilePath "$ModulePath\$KeyFileName" -Force
 
 }
