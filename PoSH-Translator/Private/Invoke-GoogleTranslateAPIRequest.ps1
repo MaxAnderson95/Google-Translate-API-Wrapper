@@ -10,15 +10,16 @@ Function Invoke-GoogleTranslateAPIRequest {
         [String]$Resource,
 
         [Parameter(Position=2)]
-        [String]$APIKey,
-
-        [Parameter(Position=3)]
         [PSCustomObject]$Body
 
     )
 
     $BaseURI = 'https://translation.googleapis.com/language/translate/v2'
 
+    $APIKey = (Get-GoogleTranslateAPIKey).APIKey
+
+    If ($APIKey -eq $Null) {Break}
+    
     Switch ($Resource) {
 
         'translate' {
