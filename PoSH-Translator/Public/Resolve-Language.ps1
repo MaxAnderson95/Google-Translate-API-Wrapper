@@ -27,8 +27,8 @@ Function Resolve-Language {
             $Obj = [PSCustomObject]@{
 
                 "SourceText" = $String
+                "DetectedLanugage" = $(Get-Language -LanguageCode $Response.data.detections.language).LanguageName
                 "DetectedLanguageCode" = $Response.data.detections.language
-                "DetectedLanugage" = $null
                 "Confidence" = $Response.data.detections.confidence
 
             }
