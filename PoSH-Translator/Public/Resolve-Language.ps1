@@ -18,13 +18,22 @@ Function Resolve-Language {
         
             $Body = @{
 
-                "q" = $SourceText
+                "q" = $String
 
             }
 
             $Response = Invoke-GoogleTranslateAPIRequest -Method POST -Resource detect -Body $Body
+            
+            $Obj = [PSCustomObject]@{
 
-            Write-Output $Response
+                "SourceText" = $String
+                "DetectedLanguageCode" = $Response.data.detections.language
+                "DetectedLanugage" = $null
+                "Confidence" = $Response.data.detections.confidence
+
+            }
+
+            Write-Output $Obj
 
         }
 
